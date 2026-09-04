@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lingshu-ai-agent/lingshu/main/assets/lingshu_logo.svg" alt="LingShu Docs" width="100"/>
+  <img src="https://raw.githubusercontent.com/lingshu-ai-agent/lingshu-docs/main/assets/lingshu_logo.svg" alt="LingShu Docs" width="100"/>
 
   <h1>lingshu-docs · 灵枢文档站</h1>
   <p><strong>The Documentation Source</strong></p>
