@@ -11,14 +11,6 @@ const sidebars: SidebarsConfig = {
         'concepts/identity-and-memory',
       ],
     },
-    {
-      type: 'category',
-      label: 'Coming Soon',
-      collapsed: true,
-      items: [
-        // 占位 — 等后续 docs 补全
-      ],
-    },
   ],
 };
 
