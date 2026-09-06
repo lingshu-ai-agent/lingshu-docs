@@ -24,7 +24,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
       - run: npm install --no-audit --no-fund
       - run: npm run build
 
@@ -41,7 +40,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm
       - run: npm install --no-audit --no-fund
       - run: npm run build
       - uses: actions/configure-pages@v5
