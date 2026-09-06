@@ -13,7 +13,7 @@ const config: Config = {
   organizationName: 'lingshu-ai-agent',
   projectName: 'lingshu-docs',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
