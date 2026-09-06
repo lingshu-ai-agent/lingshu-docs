@@ -1,9 +1,9 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/lingshu-ai-agent/lingshu-docs/main/assets/lingshu_logo.svg" alt="LingShu Docs" width="100"/>
+  <img src="https://raw.githubusercontent.com/lingshu-ai-agent/lingshu/main/assets/lingshu_logo.svg" alt="LingShu Docs" width="100"/>
 
   <h1>lingshu-docs · 灵枢文档站</h1>
   <p><strong>The Documentation Source</strong></p>
-  <p>Docusaurus 3 · 中英双语 · 自动 deploy 到 <a href="https://lingshu-ai-agent.github.io/lingshu-docs/">docs.lingshu.ai</a></p>
+  <p>Docusaurus 3 · 中英双语 · 自动 deploy 到 <a href="https://lingshu-ai-agent.github.io/lingshu-docs/">lingshu-ai-agent.github.io/lingshu-docs/</a></p>
 
   <p>
     <a href="https://github.com/lingshu-ai-agent/lingshu-docs/stargazers"><img src="https://img.shields.io/github/stars/lingshu-ai-agent/lingshu-docs?style=for-the-badge" alt="stars"/></a>
@@ -21,45 +21,26 @@
 
 ---
 
-## 📁 目录结构
+## 📁 当前结构(2026-09 bootstrap)
 
 ```
 lingshu-docs/
-├── docs/                              ← 英文文档
+├── docs/
 │   ├── intro.md                       ← 30s 上手
-│   ├── installation.md
-│   ├── quick-start.md
-│   ├── concepts/
-│   │   ├── react-loop.md
-│   │   ├── slots.md
-│   │   ├── spi.md
-│   │   ├── sandbox.md
-│   │   └── skills.md
-│   ├── guides/
-│   │   ├── first-agent.md
-│   │   ├── custom-tool.md
-│   │   ├── custom-skill.md
-│   │   ├── multi-agent.md
-│   │   └── production.md
-│   ├── adapters/
-│   │   ├── google-adk.md
-│   │   ├── alibaba-graph.md
-│   │   └── langgraph4j.md
-│   ├── reference/
-│   │   ├── config.md
-│   │   ├── api.md
-│   │   └── events.md
-│   └── ops/
-│       ├── observability.md
-│       ├── security.md
-│       └── deployment.md
-├── i18n/zh-CN/                        ← 中文翻译
-├── blog/                              ← Release notes / 案例
-├── static/img/                        ← 图片资源
+│   └── concepts/
+│       └── identity-and-memory.md     ← v1.5.5 新增
+├── static/
+│   └── img/lingshu_logo.svg           ← 品牌图标
+├── assets/
+│   └── lingshu_logo.svg               ← 旧位置(保留兼容)
+├── src/css/custom.css                 ← 品牌色(jade + gold)
+├── .github/workflows/deploy.yml       ← GitHub Pages 自动部署
 ├── docusaurus.config.ts
 ├── sidebars.ts
 └── package.json
 ```
+
+> ⚠️ **早期规划中的子目录**(concepts/, guides/, adapters/, reference/, ops/, i18n/)正在按 [dsh_agent_design.md](https://github.com/lingshu-ai-agent/lingshu/blob/main/dsh_agent_design.md) §13 版本节奏逐步补全。**Identity & Memory 是 v1.5.5 的首发篇**,后续 ReAct Loop / Slots / SPI / Sandbox / Skills 等会在 v0.5 路线里一起出。
 
 ---
 
@@ -82,10 +63,10 @@ npm start
 ### 改一行文字
 
 1. 直接在 GitHub 上点 ✏️ 在线编辑
-2. Commit message 写 `docs: typo fix in slots.md`
+2. Commit message 写 `docs: typo fix in identity-and-memory.md`
 3. PR 通过 → 自动部署
 
-### 新增一节
+### 新增一篇
 
 ```bash
 git checkout -b docs/new-guide-xxx
@@ -95,6 +76,7 @@ id: xxx
 title: My New Guide
 sidebar_position: 10
 ---
+# 然后在 sidebars.ts 的 Concepts/Guides 分类下加一行 'concepts/xxx'
 git push origin docs/new-guide-xxx
 # 在 GitHub 开 PR
 ```
@@ -107,34 +89,20 @@ git push origin docs/new-guide-xxx
 
 ## 🚀 自动部署
 
-`.github/workflows/deploy.yml` 在 `main` 分支 push 时自动 build + deploy 到 GitHub Pages:
+`.github/workflows/deploy.yml` 在 `main` 分支 push 时自动 build + deploy 到 GitHub Pages(`lingshu-ai-agent.github.io/lingshu-docs/`):
 
-```yaml
-name: Deploy to GitHub Pages
-on:
-  push:
-    branches: [main]
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
-      - uses: actions/setup-node@v4
-        with: { node-version: 18 }
-      - run: npm ci
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with: { github_token: ${{ secrets.GITHUB_TOKEN }} }
-```
+- Node 18 + `npm ci` + `npm run build`
+- `actions/upload-pages-artifact@v3` 上传 build 产物
+- `actions/deploy-pages@v4` 推到 Pages
 
 ---
 
 ## 📚 相关
 
 - 核心引擎:[lingshu-ai-agent/lingshu](https://github.com/lingshu-ai-agent/lingshu)
-- 官网:[lingshu-ai-agent.github.io](https://lingshu-ai-agent.github.io)
-- 设计文档:见主仓库 `dsh_agent_design.md`
+- 设计文档:[dsh_agent_design.md](https://github.com/lingshu-ai-agent/lingshu/blob/main/dsh_agent_design.md)(v1.5.5)
+- 官网:[lingshu-ai-agent.github.io/lingshu-website](https://lingshu-ai-agent.github.io/lingshu-website/)
+- 组织首页:[github.com/lingshu-ai-agent](https://github.com/lingshu-ai-agent)
 
 ---
 
