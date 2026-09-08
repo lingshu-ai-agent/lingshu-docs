@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'LingShu Docs',
-  tagline: 'The Pivot of Agent Orchestration — JDK 8+ Java Agent Engine',
+  tagline: 'The Pivot of Agent Orchestration — JDK 8 source syntax / JDK 17+ runtime Java Agent Engine',
   favicon: 'img/lingshu_logo.svg',
 
   url: 'https://lingshu-ai-agent.github.io',

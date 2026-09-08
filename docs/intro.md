@@ -7,7 +7,7 @@ slug: /intro
 
 # 灵枢 LingShu · 30s 上手
 
-**LingShu**(灵枢,líng shū)是 **JDK 8+** 的 Java Agent Engine —— Spring Boot SPI、ReAct Loop、9 个可插拔槽位。
+**LingShu**(灵枢,líng shū)是 **JDK 8 source syntax / JDK 17+ runtime** 的 Java Agent Engine —— Spring Boot 3.2.x SPI、ReAct Loop、9 个可插拔槽位。
 
 ## 一句话跑通
 
